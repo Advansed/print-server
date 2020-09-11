@@ -20,7 +20,7 @@ function start(route, handle) {
 	console.log("Request received.");
 	app.use('/Static', express.static('./server'));
 	app.get('/', onRequest);
-	app.listen(8888);	
+	app.listen(3000);	
 }
 
 exports.start = start;
