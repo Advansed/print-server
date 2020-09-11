@@ -23,7 +23,7 @@ function start( req ) {
 
 function login( req ) {
 
-  return req;
+  return req.fio;
 
 }
 
