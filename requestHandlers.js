@@ -30,3 +30,4 @@ function registration ( req ) {
 }
 
 exports.start = start;
+exports.login = login;
