@@ -23,8 +23,12 @@ function start( req ) {
 
 function login( req ) {
 
-  return req.fio;
+  var query = connection.query('call login (?, ?)', req.phone, req.pass, function(err, result) {
+    if(err ) throw err
 
+    console(result)
+    
+  });
 }
 
 function registration ( req ) {
