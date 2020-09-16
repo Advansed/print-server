@@ -9,16 +9,7 @@ var connection = mysql.createConnection({
 });
 
 function start( req ) {
- // console.log(req.query)
-
-  // let method = req.query.method
- 
-  // try {
-  //   return eval( method + "( req.query )")
-  // } catch (error) {
-  //   return req.query.phone
-  // }
-
+  console.log(req.query)
 }
 
 function login( req ) {
