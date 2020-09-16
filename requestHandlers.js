@@ -9,7 +9,7 @@ var connection = mysql.createConnection({
 });
 
 function start( req ) {
-  console.log(req.query)
+  console.log("start")
 }
 
 function login( req ) {
