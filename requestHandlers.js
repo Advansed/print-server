@@ -10,6 +10,7 @@ var connection = mysql.createConnection({
 
 function start( req ) {
   console.log("start")
+  return "Get Started"
 }
 
 function login( req ) {
