@@ -15,11 +15,10 @@ function start( req ) {
 
 function login( req ) {
 
-  //var query = connection.query('call login (?, ?)', req.phone, req.pass, function(err, result) {
-  //  if(err ) throw err
-//    console(req.phone)
-
-  //});
+  var query = connection.query('call login (?, ?)', req.phone, req.pass, function(err, result) {
+    if(err ) throw err
+    console(result)
+  });
 
   return "login"
 }
