@@ -13,8 +13,8 @@ function start(route, handle) {
 	console.log(ret)
 
     response.writeHead(200, {"Content-Type": "application/json"});
-    response.write(ret);
-	response.end();
+//    response.write(ret);
+	response.end(ret);
 	
   }
 	console.log("Request received.");
