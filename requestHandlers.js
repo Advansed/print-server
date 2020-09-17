@@ -31,7 +31,7 @@ function login( req ) {
 function registration ( req ) {
   var query = connection.query('INSERT INTO users SET ?', req, function(err, result) {
     console.log(err);
-    console.log(result);
+    console.log(result[0]);
   });
 }
 
