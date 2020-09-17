@@ -20,6 +20,7 @@ function start(route, handle) {
 	console.log("Request received.");
 	app.use('/Static', express.static('./server'));
 	app.get('/', onRequest);
+	app.get('/login', onRequest);
 	app.listen(3000);	
 }
 
