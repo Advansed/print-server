@@ -1,3 +1,5 @@
+var personal = require("./personal");
+
 var io = require('socket.io').listen(3000); 
 
 io.origins('*:*')
