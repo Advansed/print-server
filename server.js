@@ -8,13 +8,11 @@ function start(route, handle) {
 	var pathname = url.parse(request.url).pathname;
 	console.log("Request for " + pathname + " received.");
 
-    ret = route(handle, pathname, request);
-
-	console.log(ret)
-
+	ret = route(handle, pathname, request);
+	
     response.writeHead(200, {"Content-Type": "application/json"});
-//    response.write(ret);
-	response.end(ret);
+    response.write(ret);
+	response.end();
 	
   }
 	console.log("Request received.");
