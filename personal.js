@@ -19,7 +19,7 @@ function g_service(socket, req){
     var txt = "call login(?, ?)";
     client.query(txt, [req.phone, req.pass], function(err, res){
         if(err) throw err; var json = res[0];
-        socket.emit("g_login", json);
+        socket.emit("message", json);
     });
 }
 
