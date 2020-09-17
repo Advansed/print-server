@@ -19,7 +19,7 @@ function listen(socket){
 
 function login(socket, req){
     var txt = "call login(?, ?)";
-    console.log("{" + reg.phone + "} - {" +  reg.pass + "}")
+    console.log("{" + req.phone + "} - {" +  req.pass + "}")
     client.query(txt, [req.phone, req.pass], function(err, res){
         if(err) throw err; var json = res[0];
         socket.emit("login", json);
