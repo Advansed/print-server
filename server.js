@@ -10,9 +10,9 @@ function start(route, handle) {
 
 	ret = route(handle, pathname, request);
 	
-    response.writeHead(200, {"Content-Type": "text/json"});
 	response.writeHead("Access-Control-Allow-Origin", "*");
 	response.writeHead("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    response.writeHead(200, {"Content-Type": "text/json"});
 //    response.write("write end");
 //	response.send(ret)
 	response.end("write end");
