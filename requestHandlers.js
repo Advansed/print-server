@@ -22,7 +22,7 @@ function login( req ) {
 
   var query = connection.query('call login(?, ?)', [req.phone, req.pass], function(err, result) {
     if(err ) throw err
-    console.log(JSON.stringify(result[0]))
+    console.log(JSON.stringify(result))
     return JSON.stringify(result)
   });
 
