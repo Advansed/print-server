@@ -17,10 +17,11 @@ function login( req ) {
 
   //var query = connection.query('call login (?, ?)', req.phone, req.pass, function(err, result) {
   //  if(err ) throw err
-  console.log("login")
 //    console(req.phone)
 
   //});
+
+  return "login"
 }
 
 function registration ( req ) {
