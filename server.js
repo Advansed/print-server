@@ -11,7 +11,7 @@ function start(route, handle) {
 	ret = route(handle, pathname, request);
 	
     response.writeHead(200, {"Content-Type": "application/json"});
- //   response.write();
+    response.write("write end");
 	response.end(ret);
 	
   }
