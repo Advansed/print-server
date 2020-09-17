@@ -2,16 +2,16 @@
 fs = require('fs');
 var mysql = require('mysql2');
 
-// var connection = mysql.createConnection({
-//     host     : 'localhost',
-//     port     : 3306,
-//     user     : 'ubuntu',
-//     password : 'Tattoka2017',
-//     database : 'print-server'
-// });
+var connection = mysql.createConnection({
+    host     : 'localhost',
+    port     : 3306,
+    user     : 'ubuntu',
+    password : 'Tattoka2017',
+    database : 'print-server'
+});
 
-var connectionString = 'mysql://""ubuntu"":""Tattoka2017""@""localhost""/""print-server""?charset=utf8_general_ci&timezone=-0700'; 
-var connection= mysql.createConnection(connectionString); 
+// var connectionString = 'mysql://""ubuntu"":""Tattoka2017""@""localhost""/""print-server""?charset=utf8_general_ci&timezone=-0700'; 
+// var connection= mysql.createConnection(connectionString); 
 
 function start( req ) {
   console.log("start")
