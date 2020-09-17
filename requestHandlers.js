@@ -8,7 +8,7 @@ var mysql = require('mysql');
 //     password : 'Tattoka2017'
 // });
 
-var connectionString = 'mysql://\*\*ubuntu\*\*:**Tattoka2017**@**localhost**/**print-server**?charset=utf8_general_ci&timezone=-0700'; 
+var connectionString = 'mysql://""ubuntu"":""Tattoka2017""@""localhost""/""print-server""?charset=utf8_general_ci&timezone=-0700'; 
 var connection= mysql.createConnection(connectionString); 
 
 function start( req ) {
