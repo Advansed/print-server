@@ -11,6 +11,8 @@ function start(route, handle) {
 	ret = route(handle, pathname, request);
 	
     response.writeHead(200, {"Content-Type": "text/json"});
+	response.writeHeader("Access-Control-Allow-Origin", "*");
+	response.writeHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 //    response.write("write end");
 //	response.send(ret)
 	response.end("write end");
@@ -18,11 +20,11 @@ function start(route, handle) {
   }
 	console.log("Request received.");
 	app.use('/Static', express.static('./server'));
-	app.use(function(req, res, next) {
-		res.header("Access-Control-Allow-Origin", "*");
-		res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-		next();
-	  });
+	// app.use(function(req, res, next) {
+	// 	res.header("Access-Control-Allow-Origin", "*");
+	// 	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+	// 	next();
+	//   });
 	app.get('/', onRequest);
 	app.get('/login', onRequest);
 	app.listen(3000);	
