@@ -2,7 +2,7 @@ var mysql = require('mysql2');
 
 var client = mysql.createConnection({
   host     : '127.0.0.1',
-  user     : 'root',
+  user     : 'ubuntu',
   password : 'Tattoka2017',
   database : 'print-server'
 });
