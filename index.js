@@ -4,7 +4,7 @@ var requestHandlers = require("./requestHandlers");
 
 var handle = {}
 handle["/"] = requestHandlers.start;
-handle["/login"] = requestHandlers.start;
+handle["/login"] = requestHandlers.login;
 handle["/upload"] = requestHandlers.upload;
 console.log(handle);
 server.start(router.route, handle);
