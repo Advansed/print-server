@@ -11,8 +11,8 @@ function start(route, handle) {
 	ret = route(handle, pathname, request);
 	
     response.writeHead(200, {"Content-Type": "text/json"});
-	response.writeHeader("Access-Control-Allow-Origin", "*");
-	response.writeHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+	response.writeHead("Access-Control-Allow-Origin", "*");
+	response.writeHead("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 //    response.write("write end");
 //	response.send(ret)
 	response.end("write end");
