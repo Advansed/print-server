@@ -13,7 +13,7 @@ function start(route, handle) {
     response.writeHead(200, {"Content-Type": "application/json"});
 //    response.write("write end");
 //	response.send(ret)
-	response.end("write head");
+	response.end(ret);
 	
   }
 	console.log("Request received.");
