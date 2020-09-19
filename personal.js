@@ -15,6 +15,8 @@ function listen(socket){
 
     socket.on("registration", function(req){ registration(socket, req)});
 
+    socket.on("services", function(req){ services(socket, req)});
+
 }
 
 function login(socket, req){
@@ -31,6 +33,14 @@ function registration(socket, req){
     client.query(txt, JSON.stringify(req), function(err, res){
         if(err) throw err; var json = res[0];
         socket.emit("registration", json);
+    });
+}
+
+function services(socket, req){
+    var txt = "select * from services";
+    client.query(txt, function(err, res){
+        if(err) throw err; var json = res[0];
+        socket.emit("services", json);
     });
 }
 
