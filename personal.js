@@ -32,7 +32,7 @@ function registration(socket, req){
     var txt = "call registration(?)";
     client.query(txt, JSON.stringify(req), function(err, res){
         if(err) throw err; var json = res[0];
-        socket.emit("registration", res);
+        socket.emit("registration", json);
     });
 }
 
@@ -40,7 +40,8 @@ function services(socket, req){
     var txt = "select * from services";
     client.query(txt, function(err, res){
         if(err) throw err; var json = res[0];
-        socket.emit("services", json);
+        console.log(res)
+        socket.emit("services", res);
     });
 }
 
