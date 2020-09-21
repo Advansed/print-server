@@ -11,11 +11,13 @@ client.connect();
 
 function listen(socket){
 
-    socket.on("login", function(req){ login(socket, req)});
+    socket.on("login",          function(req){ login(socket, req)});
 
-    socket.on("registration", function(req){ registration(socket, req)});
+    socket.on("registration",   function(req){ registration(socket, req)});
 
-    socket.on("services", function(req){ services(socket, req)});
+    socket.on("services",       function(req){ services(socket, req)});
+
+    socket.on("cargos",         function(req){ cargos(socket, req)});
 
 }
 
@@ -39,10 +41,16 @@ function registration(socket, req){
 function services(socket, req){
     var txt = "select * from services";
     client.query(txt, function(err, res){
-        if(err) throw err; var json = res[0];
-        console.log(res)
+        if(err) throw err; 
         socket.emit("services", res);
     });
 }
 
+function cargos(socket, req){
+    var txt = "select * from cargos";
+    client.query(txt, function(err, res){
+        if(err) throw err; 
+        socket.emit("cargos", res);
+    });
+}
 exports.listen = listen;
