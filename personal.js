@@ -32,7 +32,7 @@ function registration(socket, req){
     var txt = "call registration(?)";
     client.query(txt, JSON.stringify(req), function(err, res){
         if(err) throw err; var json = res[0];
-        socket.emit("registration", json);
+        socket.emit("registration", res);
     });
 }
 
