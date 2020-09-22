@@ -45,12 +45,17 @@ function services(socket, req){
         socket.emit("services", res);
     });
 }
-
+            name: 'radio1',
+            type: 'radio',
+            label: 'Доставка',
+            value: 'value1',
+            checked: true
 function cargos(socket, req){
-    var txt = "select * from cargos";
+    var txt = "select name, 'radio' type, name label, id value, false checked from cargos";
     client.query(txt, function(err, res){
         if(err) throw err; 
         socket.emit("cargos", res);
     });
 }
+
 exports.listen = listen;
