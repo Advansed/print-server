@@ -19,7 +19,9 @@ function listen(socket){
 
     socket.on("cargos",         function(req){ cargos(socket, req)});
 
-    socket.on("franchaise",   function(req){ franchaise(socket, req)});
+    socket.on("franchaise",     function(req){ franchaise(socket, req)});
+
+    socket.on("s_service",      function(req){ s_service(socket, req)});
 
 }
 
@@ -61,6 +63,13 @@ function franchaise(socket, req){
     client.query(txt, function(err, res){
         if(err) throw err; 
         socket.emit("franchaise", res[0]);
+    });
+}
+
+function s_service(socket, req){
+    var txt = "call s_service";
+    client.query(txt, req, function(err, res){
+        if(err) throw err; 
     });
 }
 
