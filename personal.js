@@ -67,6 +67,7 @@ function franchaise(socket, req){
 }
 
 function s_service(socket, req){
+    console.log("s_service")
     var txt = "call s_service";
     client.query(txt, req, function(err, res){
         if(err) throw err; 
