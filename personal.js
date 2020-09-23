@@ -19,7 +19,7 @@ function listen(socket){
 
     socket.on("cargos",         function(req){ cargos(socket, req)});
 
-    socket.on("franhcaisers",   function(req){ cargos(socket, req)});
+    socket.on("franhcaise",   function(req){ cargos(socket, req)});
 
 }
 
