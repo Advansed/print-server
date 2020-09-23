@@ -56,11 +56,11 @@ function cargos(socket, req){
     });
 }
 
-function franchaisers(socket, req){
-    var txt = "call franchaisers";
+function franchaise(socket, req){
+    var txt = "call franchaise";
     client.query(txt, function(err, res){
         if(err) throw err; 
-        socket.emit("franhcaisers", res);
+        socket.emit("franhcaise", res);
     });
 }
 
