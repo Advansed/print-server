@@ -19,6 +19,8 @@ function listen(socket){
 
     socket.on("cargos",         function(req){ cargos(socket, req)});
 
+    socket.on("franhcaisers",   function(req){ cargos(socket, req)});
+
 }
 
 function login(socket, req){
@@ -53,5 +55,15 @@ function cargos(socket, req){
         socket.emit("cargos", res);
     });
 }
+
+function franchaisers(socket, req){
+    var txt = "call franchaisers";
+    client.query(txt, function(err, res){
+        if(err) throw err; 
+        socket.emit("franhcaisers", res);
+    });
+}
+
+
 
 exports.listen = listen;
