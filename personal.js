@@ -60,7 +60,7 @@ function franchaise(socket, req){
     var txt = "call franchaise";
     client.query(txt, function(err, res){
         if(err) throw err; 
-        socket.emit("franchaise", res);
+        socket.emit("franchaise", res[0]);
     });
 }
 
