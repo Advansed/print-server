@@ -75,7 +75,7 @@ function    s_service(socket, req){
     });
 }
 
-function    papers(scoket, req){
+function    papers(socket, req){
     var txt = "select * from papers";
     client.query(txt, JSON.stringify(req), function(err, res){
         if(err) throw err; 
