@@ -23,9 +23,11 @@ function listen(socket){
 
     socket.on("s_service",      function(req){ s_service(socket, req)});
 
+    socket.on("papers",         function(req){ papers(socket, req)});
+
 }
 
-function login(socket, req){
+function    login(socket, req){
     var txt = "call login(?, ?)";
     console.log(req)
     client.query(txt, [req.phone, req.pass], function(err, res){
@@ -34,7 +36,7 @@ function login(socket, req){
     });
 }
 
-function registration(socket, req){
+function    registration(socket, req){
     var txt = "call registration(?)";
     client.query(txt, JSON.stringify(req), function(err, res){
         if(err) throw err; var json = res[0];
@@ -42,7 +44,7 @@ function registration(socket, req){
     });
 }
 
-function services(socket, req){
+function    services(socket, req){
     var txt = "select * from services";
     client.query(txt, function(err, res){
         if(err) throw err; 
@@ -50,7 +52,7 @@ function services(socket, req){
     });
 }
 
-function cargos(socket, req){
+function    cargos(socket, req){
     var txt = "select name, 'radio' type, name label, name value, false checked from cargos";
     client.query(txt, function(err, res){
         if(err) throw err; 
@@ -58,7 +60,7 @@ function cargos(socket, req){
     });
 }
 
-function franchaise(socket, req){
+function    franchaise(socket, req){
     var txt = "call franchaise";
     client.query(txt, function(err, res){
         if(err) throw err; 
@@ -66,15 +68,20 @@ function franchaise(socket, req){
     });
 }
 
-function s_service(socket, req){
-    console.log("s_service")
-    console.log(req);
+function    s_service(socket, req){
     var txt = "call s_service( ? )";
     client.query(txt, JSON.stringify(req), function(err, res){
-        if(err) throw err; 
+        if(err) throw err;
     });
 }
 
+function    papers(scoket, req){
+    var txt = "select * from papers";
+    client.query(txt, JSON.stringify(req), function(err, res){
+        if(err) throw err; 
+        socket.emit("papers", res); 
+    });    
+}
 
 
 exports.listen = listen;
