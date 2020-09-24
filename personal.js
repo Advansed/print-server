@@ -25,6 +25,8 @@ function listen(socket){
 
     socket.on("papers",         function(req){ papers(socket, req)});
 
+    socket.on("sizes",          function(req){ sizes(socket, req)});
+
 }
 
 function    login(socket, req){
@@ -83,5 +85,12 @@ function    papers(socket, req){
     });    
 }
 
+function    sizes(socket, req){
+    var txt = "select * from sizes";
+    client.query(txt, JSON.stringify(req), function(err, res){
+        if(err) throw err; 
+        socket.emit("sizes", res); 
+    });    
+}
 
 exports.listen = listen;
