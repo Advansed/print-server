@@ -27,6 +27,7 @@ function listen(socket){
 
     socket.on("sizes",          function(req){ sizes(socket, req)});
 
+    socket.on("i_order",        function(req){ i_order(socket, req)})
 }
 
 function    login(socket, req){
@@ -92,5 +93,14 @@ function    sizes(socket, req){
         socket.emit("sizes", res); 
     });    
 }
+
+function    i_order(socket, req){
+    var txt = "call i_order( ?, ?)";
+    client.query(txt, [req.phone, req.service], function(err, res){
+        if(err) throw err; 
+        socket.emit("i_order", res[0]); 
+    });  
+}
+
 
 exports.listen = listen;
