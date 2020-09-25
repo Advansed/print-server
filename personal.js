@@ -55,7 +55,7 @@ function    services(socket, req){
 }
 
 function    cargos(socket, req){
-    var txt = "select name, 'radio' type, name label, name value, false checked from cargos";
+    var txt = "select * from cargos";
     client.query(txt, function(err, res){
         if(err) throw err; 
         socket.emit("cargos", res);
