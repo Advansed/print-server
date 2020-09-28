@@ -73,7 +73,7 @@ function    franchaise(socket, req){
 
 function    s_service(socket, req){
     var txt = "call s_service( ? )";
-    console.log(JSON.stringify(req))
+    console.log(req)
     client.query(txt, JSON.stringify(req), function(err, res){
         if(err) throw err;
     });
