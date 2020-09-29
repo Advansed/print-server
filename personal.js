@@ -111,7 +111,7 @@ function    method(socket, req){
     var txt = "call method( ? )";
     client.query(txt, req.method, function(err, res){
         if(err) throw err; 
-        socket.emit("method", res[0]); 
+        socket.emit("method", res); 
     });  
 }
 
