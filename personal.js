@@ -1,3 +1,4 @@
+const { METHODS } = require('http');
 var mysql = require('mysql2');
 
 var client = mysql.createConnection({
@@ -15,6 +16,8 @@ function listen(socket){
 
     socket.on("registration",   function(req){ registration(socket, req)});
 
+    socket.on("method",         function(req){ method(socket, req)});
+
     socket.on("services",       function(req){ services(socket, req)});
 
     socket.on("cargos",         function(req){ cargos(socket, req)});
@@ -29,7 +32,6 @@ function listen(socket){
 
     socket.on("i_order",        function(req){ i_order(socket, req)})
 
-    socket.on("service_tree"),  function(req){ service_tree(socket, req)};
 }
 
 function    login(socket, req){
@@ -105,11 +107,11 @@ function    i_order(socket, req){
     });  
 }
 
-function    service_tree(socket, req){
-    var txt = "call service_tree";
-    client.query(txt, function(err, res){
+function    method(socket, req){
+    var txt = "call method( ? )";
+    client.query(txt, req.method, function(err, res){
         if(err) throw err; 
-        socket.emit("service_tree", res[0]); 
+        socket.emit("method", res[0]); 
     });  
 }
 
