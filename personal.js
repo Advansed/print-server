@@ -108,8 +108,8 @@ function    i_order(socket, req){
 }
 
 function    method(socket, req){
-    var txt = "call method( ? )";
-    client.query(txt, req.method, function(err, res){
+    var txt = "call method( ?, ? )";
+    client.query(txt, [req.method, JSON.stringify(req)], function(err, res){
         if(err) throw err; 
         socket.emit("method", res); 
     });  
