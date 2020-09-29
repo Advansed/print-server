@@ -28,6 +28,8 @@ function listen(socket){
     socket.on("sizes",          function(req){ sizes(socket, req)});
 
     socket.on("i_order",        function(req){ i_order(socket, req)})
+
+    socket.on("service_tree"),  function(req)( service_tree(socket, req))
 }
 
 function    login(socket, req){
@@ -103,5 +105,12 @@ function    i_order(socket, req){
     });  
 }
 
+function    service_tree(socket, req){
+    var txt = "call service_tree";
+    client.query(txt, function(err, res){
+        if(err) throw err; 
+        socket.emit("service_tree", res[0]); 
+    });  
+}
 
 exports.listen = listen;
