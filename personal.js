@@ -29,7 +29,7 @@ function listen(socket){
 
     socket.on("i_order",        function(req){ i_order(socket, req)})
 
-    socket.on("service_tree"),  function(req)( service_tree(socket, req))
+    socket.on("service_tree"),  function(req){ service_tree(socket, req)};
 }
 
 function    login(socket, req){
