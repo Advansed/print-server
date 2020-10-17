@@ -112,7 +112,7 @@ function    method(socket, req){
     client.query(txt, [req.method, JSON.stringify(req)], function(err, res){
         if(err) throw err; 
         console.log(res);
-        socket.emit("method", res); 
+        socket.emit("method_" + req.method, res); 
     });  
 }
 
