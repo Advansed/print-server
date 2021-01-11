@@ -108,6 +108,7 @@ function    i_order(socket, req){
 }
 
 function    method(socket, req){
+    console.log(req)
     var txt = "call method( ?, ? )";
     client.query(txt, [req.method, JSON.stringify(req)], function(err, res){
         if(err) throw err; 
