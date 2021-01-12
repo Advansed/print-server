@@ -10,7 +10,7 @@ var client = mysql.createConnection({
 
 client.connect();
 
-function listen(socket){
+function    listen(socket){
 
     socket.on("login",          function(req){ login(socket, req)});
 

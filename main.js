@@ -1,8 +1,9 @@
 var personal = require("./personal");
 const io = require('socket.io')(3000);
+console.log("io connected on :3000");
 
 io.on('connection', socket => {
-    console.log("io connected on :3000");
+    console.log(socket.id + " connected on :3000");
     personal.listen(socket)
 });
 
