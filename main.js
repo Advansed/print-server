@@ -1,13 +1,19 @@
 var personal = require("./personal");
+const io = require('socket.io')(3000);
 
-var io = require('socket.io').listen(3000); 
+io.on('connection', socket => {
+    console.log("io connected on :3000");
+    personal.listen(socket)
+});
 
-io.origins('*:*')
+// var io = require('socket.io').listen(3000); 
 
-console.log("io connected on :3000");
+// io.origins('*:*')
 
-io.sockets.on('connection', function (socket) {
+// console.log("io connected on :3000");
+
+// io.sockets.on('connection', function (socket) {
     
-    personal.listen(socket);
+//     personal.listen(socket);
       
- });
+//  });
