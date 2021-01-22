@@ -49,14 +49,14 @@ function method ( req, res ) {
   console.log(req.query)
   var result_1 = '';
 
-  get_info(req.query, function(result){
-    result_1 = result; 
+  let res = await get_info(req.query, function(result){
+    return result; 
     //rest of your code goes in here
   });
-  console.log(result_1); // good
+  console.log(res); // good
   return result_1
 }
 
 exports.start   = start;
 exports.login   = login;
-exports.method  = method;
+exports.method  = method
