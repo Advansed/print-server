@@ -14,7 +14,7 @@ function start( req ) {
   return "Get Started"
 }
 
-function login( req ) {
+function login( req, res ) {
 
   var txt = "call login(?, ?)";
   console.log(req.query)
@@ -29,17 +29,15 @@ function login( req ) {
 
 }
 
-function method ( req ) {
+function method ( req, res ) {
   console.log(req.query)
   var txt = "call method( ?, ? )";
-  let res = client.query(txt, [req.query.method, JSON.stringify(req.query)], function(err, res){
+  client.query(txt, [req.query.method, JSON.stringify(req.query)], function(err, res){
       if(err) throw err; 
 //      console.log(res);
-      return "result"
+      res.end(res);
       //socket.emit("method_" + req.method, res); 
   });  
-  console.log(res)
-  return res
 }
 
 exports.start = start;
