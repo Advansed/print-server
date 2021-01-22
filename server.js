@@ -15,7 +15,7 @@ function start(route, handle) {
     response.writeHead(200, {"Content-Type": "text/json"});
 	//response.write("write end");
 	//response.send(ret)
-	response.end("write end");
+	response.end(ret);
 	
   }
 	console.log("Request received.");
@@ -27,6 +27,7 @@ function start(route, handle) {
 	  });
 	app.get('/', onRequest);
 	app.get('/login', onRequest);
+	app.get('/method', onRequest);
 	app.listen(3000);	
 }
 

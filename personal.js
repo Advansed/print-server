@@ -8,29 +8,29 @@ var client = mysql.createConnection({
   database : 'print-server'
 });
 
-client.connect();
+//client.connect();
 
 function    listen(socket){
 
-    socket.on("login",          function(req){ login(socket, req)});
+    socket.on("login",          function( req ){ login(socket,            req)});
 
-    socket.on("registration",   function(req){ registration(socket, req)});
+    socket.on("registration",   function( req ){ registration(socket,     req)});
 
-    socket.on("method",         function(req){ method(socket, req)});
+    socket.on("method",         function( req ){ method(socket,           req)});
 
-    socket.on("services",       function(req){ services(socket, req)});
+    socket.on("services",       function( req ){ services(socket,         req)});
 
-    socket.on("cargos",         function(req){ cargos(socket, req)});
+    socket.on("cargos",         function( req ){ cargos(socket,           req)});
 
-    socket.on("franchaise",     function(req){ franchaise(socket, req)});
+    socket.on("franchaise",     function( req ){ franchaise(socket,       req)});
 
-    socket.on("s_service",      function(req){ s_service(socket, req)});
+    socket.on("s_service",      function( req ){ s_service(socket,        req)});
 
-    socket.on("papers",         function(req){ papers(socket, req)});
+    socket.on("papers",         function( req ){ papers(socket,           req)});
 
-    socket.on("sizes",          function(req){ sizes(socket, req)});
+    socket.on("sizes",          function( req ){ sizes(socket,            req)});
 
-    socket.on("i_order",        function(req){ i_order(socket, req)})
+    socket.on("i_order",        function( req ){ i_order(socket,          req)})
 
 }
 

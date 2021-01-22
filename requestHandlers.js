@@ -2,16 +2,12 @@
 fs = require('fs');
 var mysql = require('mysql2');
 
-var connection = mysql.createConnection({
-    host     : 'localhost',
-    port     : 3306,
-    user     : 'ubuntu',
-    password : 'Tattoka2017',
-    database : 'print-server'
+var client = mysql.createConnection({
+  host     : '127.0.0.1',
+  user     : 'ubuntu',
+  password : 'Tattoka2017',
+  database : 'print-server'
 });
-
-// var connectionString = 'mysql://""ubuntu"":""Tattoka2017""@""localhost""/""print-server""?charset=utf8_general_ci&timezone=-0700'; 
-// var connection= mysql.createConnection(connectionString); 
 
 function start( req ) {
   console.log("start")
@@ -20,20 +16,31 @@ function start( req ) {
 
 function login( req ) {
 
-  var query = connection.query('call login(?, ?)', [req.phone, req.pass], function(err, result) {
-    if(err ) throw err
-    console.log(JSON.stringify(result))
-    return result
+  var txt = "call login(?, ?)";
+  console.log(req.query)
+  client.query(txt, [req.query.phone, req.query.pass], function(err, res){
+      if(err) throw err; var json = res[0];
+      return JSON.stringify(json)
+      //socket.emit("login", json);
   });
+
+  console.log("login")
+  return "login"
 
 }
 
-function registration ( req ) {
-  var query = connection.query('INSERT INTO users SET ?', req, function(err, result) {
-    console.log(err);
-    console.log(result[0]);
-  });
+function method ( req ) {
+  console.log(req.query)
+  var txt = "call method( ?, ? )";
+  client.query(txt, [req.method, JSON.stringify(req)], function(err, res){
+      if(err) throw err; 
+      console.log(res);
+      return JSON.stringify(res)
+      //socket.emit("method_" + req.method, res); 
+  });  
+
 }
 
 exports.start = start;
 exports.login = login;
+exports.method = method;
