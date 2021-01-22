@@ -29,7 +29,7 @@ function login( req, res ) {
 
 }
 
-function get_info(req, callback){
+async function get_info(req, callback){
       
   var sql = "call method( ?, ? )";
 
