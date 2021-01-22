@@ -51,9 +51,9 @@ function method ( req, res ) {
 
   get_info(req.query, function(result){
     result_1 = result; 
-    console.log(result); // good
     //rest of your code goes in here
   });
+  console.log(result); // good
   return result_1
 }
 
