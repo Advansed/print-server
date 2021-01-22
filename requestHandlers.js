@@ -47,7 +47,7 @@ function method ( req, res ) {
         res.writeHead(200, {"Content-Type": "text/json"});
         //response.write("write end");
         //response.send(ret)
-        res.end(result);
+        res.end(JSON.stringify(result));
       
   })
   return "method"
