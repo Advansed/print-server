@@ -38,7 +38,7 @@ function method ( req ) {
       return "result"
       //socket.emit("method_" + req.method, res); 
   });  
-  return "method"
+ 
 }
 
 exports.start = start;
