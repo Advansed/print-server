@@ -31,13 +31,6 @@ function login( req, res ) {
 
 async function get_info(req, callback){
       
-  var sql = "call method( ?, ? )";
-
-  client.query(sql, [req.method, JSON.stringify(req.query)], function(err, res){
-        if (err)   throw err;
-        result_1 = res;  // Scope is larger than function
-        return callback(res);
-})
 }
 
 
@@ -45,16 +38,19 @@ async function get_info(req, callback){
 
 
 
-function method ( req ) {
+function method ( req, res ) {
   console.log(req.query)
-  var result_1 = '';
+  var sql = "call method( ?, ? )";
 
-  let res = await get_info(req.query, function(result){
-    return result; 
-    //rest of your code goes in here
-  });
-  console.log(res); // good
-  return result_1
+  client.query(sql, [req.method, JSON.stringify(req.query)], function(err, result){
+        if (err)   throw err;
+        res.writeHead(200, {"Content-Type": "text/json"});
+        //response.write("write end");
+        //response.send(ret)
+        res.end(result);
+      
+  })
+  return "method"
 }
 
 exports.start   = start;
