@@ -53,7 +53,7 @@ function method ( req, res ) {
     result_1 = result; 
     //rest of your code goes in here
   });
-  console.log(result); // good
+  console.log(result_1); // good
   return result_1
 }
 
