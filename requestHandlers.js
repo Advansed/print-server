@@ -32,13 +32,14 @@ function login( req ) {
 function method ( req ) {
   console.log(req.query)
   var txt = "call method( ?, ? )";
-  client.query(txt, [req.query.method, JSON.stringify(req.query)], function(err, res){
+  let res = client.query(txt, [req.query.method, JSON.stringify(req.query)], function(err, res){
       if(err) throw err; 
       console.log(res);
       return "result"
       //socket.emit("method_" + req.method, res); 
   });  
  
+  return res
 }
 
 exports.start = start;
