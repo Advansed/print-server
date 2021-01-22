@@ -35,7 +35,7 @@ function method ( req ) {
   client.query(txt, [req.query.method, JSON.stringify(req.query)], function(err, res){
       if(err) throw err; 
       console.log(res);
-      return res
+      return "result"
       //socket.emit("method_" + req.method, res); 
   });  
   return "method"
