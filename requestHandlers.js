@@ -32,7 +32,7 @@ function login( req ) {
 function method ( req ) {
   console.log(req.query)
   var txt = "call method( ?, ? )";
-  client.query(txt, [req.method, JSON.stringify(req)], function(err, res){
+  client.query(txt, [req.query.method, JSON.stringify(req.query)], function(err, res){
       if(err) throw err; 
       console.log(res);
       return JSON.stringify(res)
