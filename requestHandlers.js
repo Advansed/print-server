@@ -35,7 +35,6 @@ function get_info(req, callback){
 
   client.query(sql, [req.method, JSON.stringify(req.query)], function(err, res){
         if (err)   throw err;
-        console.log(res); // good
         result_1 = res;  // Scope is larger than function
         return callback(res);
 })
@@ -52,7 +51,8 @@ function method ( req, res ) {
 
   get_info(req.query, function(result){
     result_1 = result; 
-  //rest of your code goes in here
+    console.log(result); // good
+    //rest of your code goes in here
   });
   return result_1
 }
