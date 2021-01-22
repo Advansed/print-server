@@ -39,8 +39,6 @@ function method ( req, res ) {
 
   client.query(sql, [req.query.method, JSON.stringify(req.query)], function(err, result){
         if (err)   throw err;
-        res.writeHead("Access-Control-Allow-Origin", "*");
-        res.writeHead("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");      
         res.writeHead(200, {"Content-Type": "text/json"});
         //response.write("write end");
         //response.send(ret)
