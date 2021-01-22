@@ -45,7 +45,7 @@ function get_info(req, callback){
 
 
 
-function method ( req, res ) {
+function method ( req ) {
   console.log(req.query)
   var result_1 = '';
 
