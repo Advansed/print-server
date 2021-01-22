@@ -34,11 +34,11 @@ function method ( req ) {
   var txt = "call method( ?, ? )";
   let res = client.query(txt, [req.query.method, JSON.stringify(req.query)], function(err, res){
       if(err) throw err; 
-      console.log(res);
+//      console.log(res);
       return "result"
       //socket.emit("method_" + req.method, res); 
   });  
- 
+  console.log(res)
   return res
 }
 
