@@ -8,14 +8,14 @@ function start(route, handle) {
 	var pathname = url.parse(request.url).pathname;
 	console.log("Request for " + pathname + " received.");
 
-    response.writeHead(200, {"Content-Type": "text/json"});
-	route(handle, pathname, request, response);
+	ret = route(handle, pathname, request);
 	
 	// response.writeHead("Access-Control-Allow-Origin", "*");
 	// response.writeHead("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    response.writeHead(200, {"Content-Type": "text/json"});
 	//response.write("write end");
 	//response.send(ret)
-	//response.end(ret);
+	response.end(ret);
 	
   }
 	console.log("Request received.");
