@@ -27,11 +27,13 @@ function start(route, handle) {
 	//   });
 	app.use(cors())
 // Parse URL-encoded bodies (as sent by HTML forms)
-	app.use(express.urlencoded());
+	app.use(express.urlencoded({
+		extended: false
+	}));
 
 // Parse JSON bodies (as sent by API clients)
 	app.use(express.json());
-	
+
 	app.get('/', onRequest);
 	app.get('/login', onRequest);
 	//app.get('/method', onRequest);
