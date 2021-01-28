@@ -28,7 +28,7 @@ function start(route, handle) {
 	app.use(cors())
 	app.get('/', onRequest);
 	app.get('/login', onRequest);
-	app.get('/method', onRequest);
+	//app.get('/method', onRequest);
 	app.post('/method', onRequest);
 	app.listen(3000);	
 }
