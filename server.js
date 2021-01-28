@@ -28,6 +28,7 @@ function start(route, handle) {
 	app.get('/', onRequest);
 	app.get('/login', onRequest);
 	app.get('/method', onRequest);
+	app.post('/method', onRequest);
 	app.listen(3000);	
 }
 
