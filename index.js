@@ -6,5 +6,5 @@ var handle = {}
 handle["/"] = requestHandlers.start;
 handle["/login"] = requestHandlers.login;
 handle["/method"] = requestHandlers.method;
-console.log(handle);
+
 server.start(router.route, handle);

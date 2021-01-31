@@ -24,7 +24,6 @@ function login( req, res ) {
       //socket.emit("login", json);
   });
 
-  console.log("login")
   return "login"
 
 }
