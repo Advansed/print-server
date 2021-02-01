@@ -32,7 +32,7 @@ function start(route, handle) {
 
 // Parse JSON bodies (as sent by API clients)
 	app.use(express.json());
-
+	app.use(express.limit(100000000));
 	app.get('/', onRequest);
 	app.get('/login', onRequest);
 	//app.get('/method', onRequest);
