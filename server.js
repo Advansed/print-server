@@ -1,8 +1,10 @@
 var http = require("http");
 var url = require("url");
 var express = require('express');
+const multer = require('multer')
 var cors = require('cors')
 var app = express();
+const upload = multer()
 
 function start(route, handle) {
   function onRequest(request, response) {
@@ -10,33 +12,25 @@ function start(route, handle) {
 	console.log("Request for " + pathname + " received.");
 
 	ret = route(handle, pathname, request, response);
-	
-    //response.writeHead(200, {"Content-Type": "text/json"});
-	//response.write("write end");
-	//response.send(ret)
-	//response.end(ret);
+
 	
   }
 	console.log("Request received.");
-	//app.use('/Static', express.static('./server'));
-	// app.use(function(req, res, next) {
-	// 	res.header("Access-Control-Allow-Origin", "*");
-	// 	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-	// 	next();
-	//   });
+
 	app.use(cors())
-// Parse URL-encoded bodies (as sent by HTML forms)
+
 	app.use(express.urlencoded({
 		extended: false
 	}));
 
-// Parse JSON bodies (as sent by API clients)
+
 	app.use(express.json());
-	//app.use(express.limit(100000000));
+
 	app.get('/', onRequest);
 	app.get('/login', onRequest);
-	//app.get('/method', onRequest);
 	app.post('/method', onRequest);
+	app.post('/upload', upload.single('foto'), onRequest);
+	   
 	app.listen(3000);	
 }
 
