@@ -37,14 +37,16 @@ function method ( req, res ) {
   var sql = "call method( ?, ? )";
 
   client.query(sql, [req.body.method, JSON.stringify(req.body)], function(err, result){
-        if (err)   throw err;
-        res.writeHead(200, {"Content-Type": "text/json"});
-        //response.write("write end");
-        //response.send(ret)
-        res.end(JSON.stringify(result));
+    if (err)   throw err;
+    
+    res.writeHead(200, {"Content-Type": "text/json"});
+
+    console.log(result)
+
+    res.end(JSON.stringify(result));
       
   })
-  return "method"
+
 }
 
 exports.start   = start;
