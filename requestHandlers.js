@@ -57,7 +57,7 @@ function method ( req, res ) {
 }
 
 function w_method ( req, res ) {
-  console.log(req.body)
+  console.log(JSON.stringify(req.body))
   var sql = "call method( ?, ? )";
 
   w_client.query(sql, [req.body.method, JSON.stringify(req.body)], function(err, result){
