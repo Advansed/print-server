@@ -25,6 +25,7 @@ function start(route, handle) {
 	app.get('/', onRequest);
 	app.get('/login', onRequest);
 	app.post('/method', onRequest);
+	app.post('/w_method', onRequest);
 	app.post('/upload', upload.array('fotos', 12), onRequest);
 	   
 	app.listen(3000);	

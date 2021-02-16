@@ -73,6 +73,7 @@ function w_method ( req, res ) {
 
 }
 
-exports.start   = start;
-exports.login   = login;
-exports.method  = method
+exports.start     = start;
+exports.login     = login;
+exports.method    = method;
+exports.w_method  = w_method;
