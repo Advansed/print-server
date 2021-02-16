@@ -9,6 +9,13 @@ var client = mysql.createConnection({
   database : 'print-server'
 });
 
+var w_client = mysql.createConnection({
+  host     : '127.0.0.1',
+  user     : 'ubuntu',
+  password : 'Tattoka2017',
+  database : 'my-wish'
+});
+
 function start( req ) {
   console.log("start")
   return "Get Started"
@@ -37,6 +44,23 @@ function method ( req, res ) {
   var sql = "call method( ?, ? )";
 
   client.query(sql, [req.body.method, JSON.stringify(req.body)], function(err, result){
+    if (err)   throw err;
+    
+    res.writeHead(200, {"Content-Type": "text/json"});
+
+    console.log(result)
+
+    res.end(JSON.stringify(result));
+      
+  })
+
+}
+
+function w_method ( req, res ) {
+  console.log(req.body)
+  var sql = "call method( ?, ? )";
+
+  w_client.query(sql, [req.body.method, JSON.stringify(req.body)], function(err, result){
     if (err)   throw err;
     
     res.writeHead(200, {"Content-Type": "text/json"});
